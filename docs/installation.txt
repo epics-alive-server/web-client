@@ -1,0 +1,47 @@
+Web Client for the APS Alive System
+
+
+Dependencies
+------------
+
+This program requires gcc, make, and two external libraries.
+
+It uses the alive-client library and my CGI library, dcgi.  The
+aliveclient library can be found at
+"https://github.com/epics-alive-server/client-tools", and the dcgi can
+be found at "https://github.com/dohnarms/dcgi".  You don't need to
+install them after compiling.
+
+
+Makefile Options
+----------------
+
+There are several options in the top-level Makefile that need to be
+set.
+
+The "prefix" and "cgi_bin_dir" variables control where the resultant
+CGI binary is installed.  Ignore these if you aren't going to use
+"make" to install the file.
+
+If the alive-client library files aren't in standard locations for
+libraries and header files (thus automatically found by the compiler),
+set "AliveClient_Library_Dir" and "AliveClient_Include_Dir" variables
+to their locations. Similary, for dcgi, set "DCGI_Library_Dir" and
+"DCGI_Include_Dir".
+
+"Server", and "DB_Port" specify the alive database server IP address
+(or name) and TCP port number.  If either is not defined, the default
+value is retrieved from the alive-client library.
+
+
+Installation
+------------
+
+If you run "make install", the executable ioc_alive.cgi will be
+installed to the location that is specified in the Makefile.  If it's
+in the web site's cgi-bin directory, you probably access it as
+"http://webserver/cgi-bin/ioc_alive.cgi"
+
+
+
+
